@@ -25,7 +25,7 @@ A     B     result
 ```
 
 3. `¬(A ∧ B) ∨ ( (A ∧ C) ∧ ¬(B ∨ ¬C) )`   (alternate: `!(A && B) || ( (A && C) && !(B || !C) )`)
-  * (Hint: Is it possible to calculate this using code?)
+  * (Hint: Is it possible to calculate this using code?) YES... Replit for the win!
 ```
 A     B     C     result
 -------------------------
@@ -36,7 +36,7 @@ A     B     C     result
 1     0     0       1
 1     0     1       1
 1     1     0       0
-1     1     1       1
+1     1     1       0
 ```
 
 ## STRETCH GOAL
