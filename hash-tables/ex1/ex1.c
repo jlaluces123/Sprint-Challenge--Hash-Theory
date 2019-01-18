@@ -6,9 +6,21 @@
 Answer *get_indices_of_item_weights(int *weights, int length, int limit)
 {
   HashTable *ht = create_hash_table(16);
+  Answer *answer = malloc(sizeof(Answer));
 
-  // YOUR CODE HERE
+  for (int i = 0; i < length; i++) {
+   int retrieve_result = hash_table_retrieve(ht, limit - weights[i]);
 
+   if (retrieve_result != -1) { // --> Meaning we matched || we recieved value at that key (limit - weights[i])
+     answer->index_1 = i; // Answer comes with two parts (index_1 && index_2)
+     answer->index_2 = retrieve_result;
+     destroy_hash_table(ht); // --> Don't forget to free
+     return answer; // --> return our answer with the indexes
+   } else { // --> Bug Found: It will return NULL 4 times, we need to insert 
+     hash_table_insert(ht, weights[i], i); // 1. hash table || 2. key == weights[i] || 3. value
+   }
+  } 
+  destroy_hash_table(ht);
   return NULL;
 }
 
